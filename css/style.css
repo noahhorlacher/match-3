@@ -1,0 +1,89 @@
+@import url(reset.css);
+
+:root {
+	--cell-size: 1.3em;
+	--col-lost: hsl(5, 100%, 50%);
+	--col-cell-empty: #fff;
+	--col-cell-incorrect: #999;
+	--col-cell-almost: hsl(41, 100%, 50%);
+	--col-cell-correct: hsl(140, 100%, 50%);
+	--img-incorrect: url(../svg/incorrect.svg);
+	--img-almost: url(../svg/almost.svg);
+
+	--col-bg: hsl(240, 20%, 5%);
+	--col-text: hsla(15, 12%, 90%, 0.95);
+	--col-text-dark: hsla(15, 12%, 0%, 0.95);
+	--col-primary: hsl(210, 100%, 50%);
+	--col-primary-light: hsl(210, 100%, 70%);
+	--col-accent: hsl(303, 28%, 31%);
+
+	--radius: 2px;
+
+	--time-transition: 0.4s;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: var(--col-bg);
+	font-size: 1.5em;
+	color: var(--col-text);
+	text-align: center;
+	padding: 0 0 1em 0;
+}
+
+main {
+	margin: 0 auto 0.5em auto;
+	display: flex;
+	flex-direction: column;
+}
+
+btn {
+	height: 1em;
+	width: 1em;
+	font-size: 1em;
+	display: block;
+	margin: auto;
+	padding: 0.4em;
+	background-color: var(--col-primary);
+	color: white;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+	user-select: none;
+	font-family: sans-serif;
+	border-radius: var(--radius);
+}
+
+btn:active {
+	transform: scale(0.95);
+}
+
+btn:hover {
+	background-color: var(--col-primary-light);
+}
+
+row {
+	display: flex;
+	justify-content: center;
+}
+
+cell {
+	padding: 0.3em;
+	display: inline-block;
+	width: var(--cell-size);
+	height: var(--cell-size);
+	line-height: var(--cell-size);
+	user-select: none;
+	border: 3px solid transparent;
+	transition: border-color var(--time-transition);
+	cursor: pointer;
+}
+
+cell[selected='true'] {
+	border: 3px solid var(--col-primary);
+}
+
+score {
+	display: block;
+	margin: 0.5em auto;
+}
